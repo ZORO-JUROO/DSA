@@ -2,9 +2,6 @@ class Solution {
     public int coinChange(int[] coins, int a) {
         int n=coins.length;
         int dp[][]=new int[n][a+1];
-        for (int i = 0; i < n; i++) {
-            dp[i][0] = 0;
-        }
         for (int j = 1; j <= a; j++) {
             if (j % coins[0] == 0) {
                 dp[0][j] = j / coins[0];
