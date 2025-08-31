@@ -1,2 +1,6 @@
 # Write your MySQL query statement below
-select Department,Employee,Salary from(select d.name as Department,e.name as Employee,e.salary as Salary, dense_rank() over(partition by e.departmentId order by salary desc) as rr from Employee e join Department d on e.departmentId=d.id) temp where rr=1 or rr=2 or rr=3
+with a as
+(select dense_rank() over (partition by departmentId order by salary desc) as r, departmentId,salary from Employee),
+b as (select departmentId,salary from a where r=1 or r=2 or r=3)
+select d.name as Department, e.name as Employee,e.salary from Employee e inner join department d on 
+e.departmentId=d.id where (e.salary,e.departmentId) in (select salary,departmentId from b);
