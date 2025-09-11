@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+with t as (select date_format(trans_date,"%Y-%m")as month,country,count(*) as trans_count, sum(amount) as trans_total_amount from Transactions group by country,year(trans_date),month(trans_date)),
+a as (select date_format(trans_date,"%Y-%m")as month,country,count(*) as approved_count, sum(amount) as approved_total_amount from Transactions where state="approved" group by country,year(trans_date),month(trans_date))
+select t.month,t.country,trans_count,coalesce(approved_count,0) as approved_count ,trans_total_amount,coalesce(approved_total_amount,0) as approved_total_amount from t left join a on (t.country = a.country OR (t.country IS NULL AND a.country IS NULL)) and a.month=t.month;
