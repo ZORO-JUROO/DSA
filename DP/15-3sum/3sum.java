@@ -10,15 +10,15 @@ class Solution {
         int s=i+1,e=n-1;
         while(s<e)
         {
-            int sum=arr[i]+arr[s]+arr[e],sc=0,ec=0;
+            int sum=arr[i]+arr[s]+arr[e];
             if(sum==0)
-            {set.add(Arrays.asList(arr[i],arr[s],arr[e]));sc=1;ec=1;}
+            {set.add(Arrays.asList(arr[i],arr[s],arr[e]));s++;e--;
+                        while(s<e && arr[s]==arr[s-1]){s++;}
+                        while(s<e && arr[e]==arr[e+1]){e--;}}
             else if(sum<0)
-            {sc=1;}
+            {s++;}
             else
-            {ec=1;}
-            if(sc==1){s++;while(s<e && arr[s]==arr[s-1]){s++;}}
-            if(ec==1){e--;while(s<e && arr[e]==arr[e+1]){e--;}}
+            {e--;}
         }
     }
     return new ArrayList<>(set);
