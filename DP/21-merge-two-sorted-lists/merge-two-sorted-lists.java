@@ -31,19 +31,11 @@ class Solution {
                 another=another.next;
             }
         }
-        while(list1!=null)
-        {
+        if(list1!=null)
+
             another.next=list1;
-            list1=list1.next;
-            another=another.next;
-                
-        }
-        while(list2!=null)
-        {
+        if(list2!=null)
             another.next=list2;
-            list2=list2.next;
-            another=another.next;
-        }
         return a.next;
     }
 }
