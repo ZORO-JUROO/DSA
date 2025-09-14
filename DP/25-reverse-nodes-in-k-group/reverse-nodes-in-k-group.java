@@ -11,7 +11,6 @@
 class Solution {
     ListNode[] reverse(ListNode head,int k)
     {
-        System.out.println("hi");
         ListNode prev=null,curr=head,next;
         while(curr!=null && k-->0)
         {
@@ -20,7 +19,6 @@ class Solution {
             prev=curr;
             curr=next;
         }
-        System.out.println("yo");
         return new ListNode[]{prev,head};
     }
     public ListNode reverseKGroup(ListNode head, int k) {
@@ -33,7 +31,6 @@ class Solution {
             if(i==k)
             {
                 ListNode l[]=reverse(phead,k);
-                System.out.println("fi");
                 prev.next=l[0];
                 prev=l[1];
                 i=0;
