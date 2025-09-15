@@ -10,17 +10,27 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode curr=head;StringBuilder s=new StringBuilder();
-        while(curr!=null)
+        ListNode slow=head,fast=head,prev=null,next=null;
+        while(fast!=null && fast.next!=null)
         {
-            s.append(curr.val);
-            curr=curr.next;
+            fast=fast.next.next;
+            next=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=next;
         }
-        String a=s.toString();
-        int n=a.length();
-        for(int i=0;i<n/2;i++)
-        if(a.charAt(i)!=a.charAt(n-i-1))
-        return false;
+        
+        if(fast!=null)
+        {
+            slow=slow.next;
+        }
+        while(slow!=null)
+        {
+            if(slow.val!=prev.val)
+            return false;
+            slow=slow.next;
+            prev=prev.next;
+        }
         return true;
     }
 }
