@@ -10,12 +10,13 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode curr=head;String a="";
+        ListNode curr=head;StringBuilder s=new StringBuilder();
         while(curr!=null)
         {
-            a+=curr.val;
+            s.append(curr.val);
             curr=curr.next;
         }
+        String a=s.toString();
         int n=a.length();
         for(int i=0;i<n/2;i++)
         if(a.charAt(i)!=a.charAt(n-i-1))
