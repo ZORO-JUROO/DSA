@@ -20,7 +20,7 @@ class Solution {
     }
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<List<Integer>> set=new ArrayList<>();
-        Arrays.sort(candidates);
+
         ArrayList<Integer> a=new ArrayList<>();
         rec(candidates,0,set,a,0,target);
         return set;
