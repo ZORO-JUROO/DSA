@@ -2,25 +2,26 @@ class Solution {
     void rec(int arr[],int i,ArrayList<List<Integer>> set, ArrayList<Integer> ad,int sum,int target)
     {
         if(sum==target)
-        {set.add(ad);return;}
+        {set.add(new ArrayList<>(ad));return;}
         if(sum>target)
         return;
         for(;i<arr.length;i++)
         {
-            ArrayList<Integer> a=new ArrayList<>(ad);
-            int m=target/arr[i],s=sum;
-            for(int j=1;j<=m;j++)
+            int m=target/arr[i],s=sum,j;
+            for(j=1;j<=m;j++)
             {
-                a.add(arr[i]);
-                ArrayList<Integer> v=new ArrayList<>(a);
+                ad.add(arr[i]);
                 s=s+arr[i];
-                rec(arr,i+1,set,v,s,target);
+                rec(arr,i+1,set,ad,s,target);
+            }
+            for(;j>1;j--)
+            {
+                ad.remove(ad.size()-1);
             }
         }
     }
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<List<Integer>> set=new ArrayList<>();
-
         ArrayList<Integer> a=new ArrayList<>();
         rec(candidates,0,set,a,0,target);
         return set;
