@@ -23,7 +23,6 @@ class Solution {
         {
             fast=fast.next;
         }
-        System.out.println(fast.val);
         ListNode naya=fast.next;
         fast.next=null;
         papa.next=head;
