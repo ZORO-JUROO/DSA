@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT sell_date,COUNT(distinct product) as num_sold,group_CONCAT(distinct PRODUCT order by product SEPARATOR ',') as products FRoM ACTIVITIES GROUP BY SELL_DATE;
