@@ -4,7 +4,6 @@ class Solution {
      while(start<=end)
      {
         int mid=(start+end)/2;
-        System.out.println(start+" "+mid+" "+end);
         if(mid%2==0)
         {
             if(mid+1<=end && arr[mid]==arr[mid+1])
