@@ -20,7 +20,7 @@ class Solution {
                 if(arr[mid]<target && target<=arr[end])
                 start=mid+1;
                 else
-                end=mid;
+                end=mid-1;
             }
         }
         return -1;
