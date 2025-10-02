@@ -53,7 +53,6 @@ class Solution {
             high=mid-1;
         }
         double ans=low;
-        System.out.println(low);
         if((arr1.length+arr2.length)%2==0)
         {
             min-=1;
