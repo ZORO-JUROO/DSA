@@ -8,7 +8,6 @@ class Solution {
             arr[i]=new StringBuilder();
             String s=arr[i-1].toString();
             char c=s.charAt(0);
-                        System.out.println(s);
             int j=1,m=s.length();
             while(j<=m)
             {
