@@ -10,11 +10,11 @@ class Solution {
                 i++;
             }
             if(l!=i)
-            {f.append(" ");ans.insert(0,f);}
+            {ans.insert(0," "+f);}
             l=i+1;
             f.setLength(0);
         }
-        ans.setLength(ans.length()-1);
+        ans.deleteCharAt(0);
         return ans.toString();
     }
 }
